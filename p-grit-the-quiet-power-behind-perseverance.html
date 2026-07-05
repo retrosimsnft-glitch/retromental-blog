@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Grit: The Quiet Power Behind Perseverance · RetroMental</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0d0d;--surface:#141414;--card:#1a1a1a;--border:#252525;--primary:#00c9a7;--accent:#ff4466;--text:#e4e4e4;--muted:#888;--font:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.7;min-height:100vh}
+a{color:var(--primary);text-decoration:none;transition:opacity .15s}
+a:hover{opacity:.75}
+img{max-width:100%;height:auto;border-radius:8px}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;background:rgba(13,13,13,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:.9rem 0}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.nav-logo{font-size:1.1rem;font-weight:800;letter-spacing:-.02em;color:var(--text)}
+.nav-logo span{color:var(--primary)}
+.nav-links{display:flex;gap:1.5rem;font-size:.85rem}
+.nav-links a{color:var(--muted)}
+.nav-links a:hover{color:var(--text)}
+
+/* ── HERO ── */
+.hero{padding:5rem 1.25rem 4rem;text-align:center;max-width:780px;margin:0 auto}
+.hero-eyebrow{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--primary);margin-bottom:.9rem;font-weight:600}
+.hero h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;line-height:1.1;letter-spacing:-.03em;margin-bottom:1.1rem}
+.hero h1 em{font-style:normal;color:var(--primary)}
+.hero p{color:var(--muted);font-size:1.05rem;max-width:560px;margin:0 auto 2rem}
+.hero-stats{display:flex;justify-content:center;gap:2.5rem;margin-top:2rem}
+.hstat{text-align:center}
+.hstat-n{font-size:2rem;font-weight:800;color:var(--primary)}
+.hstat-l{font-size:.7rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+
+/* ── SECTION LABEL ── */
+.section-label{max-width:1100px;margin:2.5rem auto .8rem;padding:0 1.25rem;display:flex;align-items:center;gap:.8rem;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* ── FEATURED STRIP (top 3) ── */
+.featured{max-width:1100px;margin:0 auto;padding:0 1.25rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem}
+.feat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;display:flex;flex-direction:column;gap:.6rem;transition:border-color .2s,transform .2s}
+.feat-card:hover{border-color:var(--primary);transform:translateY(-2px)}
+.feat-cat{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--primary)}
+.feat-title{font-size:1.12rem;font-weight:700;line-height:1.3;color:var(--text)}
+.feat-excerpt{font-size:.82rem;color:var(--muted);flex:1}
+.feat-meta{font-size:.68rem;color:var(--muted)}
+
+/* ── POST GRID ── */
+.grid{max-width:1100px;margin:0 auto;padding:0 1.25rem 4rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.9rem}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.2rem;display:flex;flex-direction:column;gap:.5rem;transition:border-color .2s,transform .2s}
+.card:hover{border-color:rgba(0,201,167,.4);transform:translateY(-2px)}
+.card-cats{display:flex;flex-wrap:wrap;gap:.3rem}
+.cat-pill{font-size:.58rem;padding:.18rem .5rem;border-radius:99px;background:rgba(0,201,167,.1);color:var(--primary);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.card-title{font-size:.95rem;font-weight:700;line-height:1.35;color:var(--text)}
+.card-excerpt{font-size:.78rem;color:var(--muted);flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card-date{font-size:.65rem;color:var(--muted);margin-top:.2rem}
+
+/* ── CAT NAV ── */
+.cat-nav{max-width:1100px;margin:0 auto;padding:.5rem 1.25rem 1.5rem;display:flex;flex-wrap:wrap;gap:.45rem}
+.cat-btn{font-size:.68rem;padding:.3rem .75rem;border-radius:99px;border:1px solid var(--border);color:var(--muted);transition:all .15s;cursor:pointer}
+.cat-btn:hover,.cat-btn.active{border-color:var(--primary);color:var(--primary);background:rgba(0,201,167,.08)}
+
+/* ── POST PAGE ── */
+.post-wrap{max-width:720px;margin:0 auto;padding:3rem 1.25rem 5rem}
+.post-back{font-size:.8rem;color:var(--muted);display:inline-flex;align-items:center;gap:.3rem;margin-bottom:2rem}
+.post-cats{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.9rem}
+.post-title{font-size:clamp(1.6rem,4vw,2.5rem);font-weight:900;line-height:1.15;letter-spacing:-.03em;margin-bottom:.6rem}
+.post-meta{font-size:.75rem;color:var(--muted);margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+.post-body{font-size:1rem;line-height:1.8;color:#ccc}
+.post-body h1,.post-body h2,.post-body h3{color:var(--text);margin:2rem 0 .7rem;font-weight:700}
+.post-body h2{font-size:1.3rem}
+.post-body h3{font-size:1.1rem}
+.post-body p{margin-bottom:1.1rem}
+.post-body ul,.post-body ol{padding-left:1.4rem;margin-bottom:1.1rem}
+.post-body li{margin-bottom:.35rem}
+.post-body blockquote{border-left:3px solid var(--primary);padding:.6rem 1rem;margin:1.5rem 0;color:var(--muted);font-style:italic}
+.post-body strong{color:var(--text);font-weight:700}
+.post-body img{width:100%;margin:1.5rem 0;border-radius:10px;border:1px solid var(--border)}
+.post-body a{border-bottom:1px solid rgba(0,201,167,.35)}
+.post-related{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border)}
+.post-related h3{font-size:1rem;font-weight:700;margin-bottom:1rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.8rem}
+
+/* ── CAT PAGE ── */
+.cat-hero{padding:3rem 1.25rem 2rem;max-width:1100px;margin:0 auto}
+.cat-hero h1{font-size:2rem;font-weight:900;margin-bottom:.3rem}
+.cat-hero p{color:var(--muted);font-size:.9rem}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--border);padding:2.5rem 1.25rem;text-align:center;color:var(--muted);font-size:.75rem}
+footer strong{color:var(--text)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){.hero h1{font-size:2rem}.hero-stats{gap:1.5rem}.featured{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+</style></head><body><nav><div class="nav-inner">
+  <a class="nav-logo" href="index.html">Retro<span>Mental</span></a>
+  <div class="nav-links"><a href="index.html">Home</a><a href="c-all-categories.html">Categories</a></div>
+</div></nav><div class="post-wrap">
+<a class="post-back" href="index.html">← Back to all posts</a>
+<div class="post-cats"></div>
+<h1 class="post-title">Grit: The Quiet Power Behind Perseverance</h1>
+<div class="post-meta">September 08, 2025</div>
+<div class="post-body"><img src="https://img1.wsimg.com/isteam/ip/f37f7f98-84d6-4bfa-8f21-043eda38f2ee/A0D9BCC5-83B6-4B58-984E-C98CA795672E.png" style="max-width:100%;height:auto;" />
+<p>We often hear about talent, passion, or intelligence as keys to success. But what about <strong>grit? </strong>That stubborn refusal to give up, even when things get tough?</p>
+<p>Grit is the combination of <strong>passion and perseverance</strong> in pursuit of long-term goals. It’s what keeps you moving when motivation fades and challenges multiply. It’s less about instant results and more about consistent effort, even when no one is watching.</p>
+<h3>💬 <em>Why This Hits Close to Home</em></h3>
+<p>For me, grit isn’t just a concept; I’ve been reading about it, and it’s something I’m learning how to build <em>in real time</em>.</p>
+<p>I’ve had to push through doubts, delays, and disappointments. From trying to launch apparel while life’s life-ing, to balancing work, parenting, and building this brand from the ground up there’ve been plenty of moments where quitting felt easier than continuing.</p>
+<p>But grit? It whispers:</p>
+<blockquote><em>“Keep going. It’s worth it.”</em></blockquote>
+<p>And every day, I’m choosing to listen.</p>
+<h3>🔎 <strong>What Grit Isn’t</strong></h3>
+<ul><li>It’s <strong>not perfection</strong>.</li><li>It’s <strong>not talent alone</strong>.</li><li>It’s definitely <strong>not burnout</strong>.</li></ul>
+<p>Grit doesn’t mean pushing past every limit without rest. It means showing up with purpose, learning from failure, and adjusting your pace, but never quitting on yourself.</p>
+<h3>🧠 <strong>How to Build Grit</strong></h3>
+<p>Here are a few things I’m working on personally, and maybe they’ll help you too:</p>
+<h4>1. <strong>Define Your Why</strong></h4>
+<p>The “why” behind RetroMental, mental health, growth, storytelling, and impact, gives me the fuel to keep showing up, even when it's slow or hard.</p>
+<h4>2. <strong>Start Scared, But Start</strong></h4>
+<p>I didn’t wait until I had all the answers. I just began. Even scared. Even uncertain. That’s how this brand was born on faith and forward motion.</p>
+<h4>3. <strong>Stay Consistent</strong></h4>
+<p>Whether it’s posting blogs, creating new designs, or just thinking through content while juggling real life showing up in small ways, it builds big grit.</p>
+<h4>4. <strong>Use Failure as Feedback</strong></h4>
+<p>Nothing has gone perfectly. But every delay, every pivot, and every setback has taught me how to move smarter and with more intention.</p>
+<h4>5. <strong>Lean Into Community</strong></h4>
+<p>My POP team, my family, my audience, having people who believe in this vision, reminds me I’m not doing this alone. That matters more than I can say.</p>
+<h3>🌱 <strong>Real Talk</strong></h3>
+<p>You don’t have to feel unstoppable to have grit. You just need to be willing to keep going even when no one’s clapping, even when you’re tired, even when it’s quiet.</p>
+<h3>💭 Reflection:</h3>
+<blockquote><em>Where in your life have you shown grit before? And how can you tap into that version of you again today?</em>
+ </blockquote>
+<p><strong>Subscribe for weekly blogs, behind-the-scenes drops, and early access to RetroMental apparel &amp; digital freebies.</strong></p>
+<p>#RetroMental #Grit #StartScaredButStart #MentalBrainFood #PassionOverPressure #GrowthSeason</p></div>
+
+</div><footer><strong>RetroMental</strong> · Mental Health &amp; Personal Growth<br>
+<span style="margin-top:.4rem;display:block">Real stories. Real growth. No filters.</span></footer></body></html>
